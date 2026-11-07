@@ -1,0 +1,375 @@
+<!DOCTYPE html><html lang="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Fantasy 11</title><style>
+:root{color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);--g:#e6c35c;--bg:#0a0a14;--tx:#f2efe6;--mu:#9a98a8}
+*{box-sizing:border-box}body{margin:0 auto;background:radial-gradient(circle at 50% -10%,#2a1f4a,var(--bg) 55%);color:var(--tx);font-family:system-ui,sans-serif;padding:0 12px 96px;max-width:560px;-webkit-overflow-scrolling:touch}
+.hd{display:flex;align-items:center;gap:8px;padding:12px 0;position:sticky;top:0;background:#0a0a14ee;z-index:5}.hd b,.logo{flex:1}
+.logo{font-weight:800;letter-spacing:1px;background:linear-gradient(90deg,#e6c35c,#fff2b0,#e6c35c);-webkit-background-clip:text;color:transparent;font-size:18px}
+.card{background:linear-gradient(145deg,#1d1b36,#12121f);border:1px solid #2e2b50;border-radius:16px;padding:14px;margin:10px 0;box-shadow:0 6px 20px #0008}
+.gold{background:linear-gradient(135deg,#6b5314,#e6c35c 50%,#7a5f18);color:#1a1300}.gold h1{margin:4px 0;font-size:34px}
+.chip,.tabs button,.hd button{background:#1f1d3a;color:var(--tx);border:1px solid #38346a;border-radius:20px;padding:7px 12px;font-size:13px;white-space:nowrap;cursor:pointer}
+.chip.a,.tabs .a{background:var(--g);color:#1a1300;font-weight:700}.chips,.tabs{display:flex;gap:6px;overflow-x:auto;padding:4px 0;-webkit-overflow-scrolling:touch}
+.btn{background:linear-gradient(90deg,#d4a017,#f6de8b);color:#1a1300;border:0;border-radius:12px;padding:12px 16px;font-weight:800;font-size:15px;width:100%;margin-top:6px;cursor:pointer}.btn2{background:#0004;color:inherit;border:1px solid #0006;border-radius:12px;padding:12px 16px;font-weight:700;width:100%;margin-top:6px;cursor:pointer}
+.btn:disabled{opacity:.5}.lv{color:#ff4d5e;font-weight:800;animation:p 1s infinite}.up{color:var(--g)}.dn{color:var(--mu)}@keyframes p{50%{opacity:.35}}
+.m{display:flex;justify-content:space-between;align-items:center}small{color:var(--mu);display:block;font-size:12px}.gold small{color:#3a2d00}
+.sb{display:flex;justify-content:space-around;text-align:center;align-items:center;font-size:14px;background:linear-gradient(135deg,#0f3d2e,#1d1b36)}.sb span{font-size:30px}.sc{font-size:26px;font-weight:800;color:var(--g)}
+.row{display:flex;align-items:center;gap:8px;padding:8px;border-radius:12px;margin:5px 0;background:#14142533;border:1px solid #23224a}.row.on{border-color:var(--g);background:#2a24441a}.g{flex:1}
+.pm{width:34px;height:34px;border-radius:50%;border:1px solid var(--g);background:0;color:var(--g);font-size:20px;cursor:pointer}.cv{width:34px;height:30px;border-radius:8px;border:1px solid #555;background:0;color:#ccc;font-size:12px;cursor:pointer}.cv.a{background:var(--g);color:#000}
+.bar{position:fixed;left:0;right:0;bottom:64px;padding:8px 14px;max-width:560px;margin:auto;background:#0a0a14ee}
+.pb{height:7px;background:#2a2848;border-radius:5px;overflow:hidden;margin:8px 0}.pb i{display:block;height:100%;background:linear-gradient(90deg,#e6c35c,#ff7a59)}
+nav{position:fixed;bottom:0;left:0;right:0;display:flex;max-width:560px;margin:auto;background:#0e0e1c;border-top:1px solid #2e2b50;padding-bottom:env(safe-area-inset-bottom,0px);z-index:10}nav button{flex:1;background:0;border:0;color:var(--mu);padding:12px 0;font-size:12px;cursor:pointer}nav .a{color:var(--g);font-weight:700}
+.md{position:fixed;inset:0;background:#000d;display:flex;align-items:flex-end;z-index:20}.sh{background:#161628;width:100%;max-width:560px;margin:auto;border-radius:20px 20px 0 0;padding:18px;max-height:92vh;overflow-y:auto;-webkit-overflow-scrolling:touch}
+input,select{width:100%;padding:12px;border-radius:10px;border:1px solid #38346a;background:#0e0e1c;color:var(--tx);margin:6px 0;font-size:14px;outline:none}
+.toast{position:fixed;top:70px;left:50%;transform:translateX(-50%);background:var(--g);color:#000;padding:10px 16px;border-radius:20px;z-index:30;font-weight:700;font-size:14px}
+.ch{max-height:220px;overflow:auto}.bb{padding:8px 11px;border-radius:12px;margin:4px 0;max-width:85%;font-size:14px}.ai{background:#2a2750}.me{background:#6b5314;margin-left:auto}
+.pitch{background:repeating-linear-gradient(0deg,#1f7a35 0 38px,#238a3c 38px 76px);padding:8px 4px 14px}
+.pr2{display:flex;justify-content:space-around;flex-wrap:wrap}.pl{text-align:center;position:relative;width:84px;margin:4px 0}
+.nm{background:#fff;color:#111;font-size:11px;font-weight:700;padding:1px 6px;border-radius:4px;display:block;margin:-4px 2px 0}
+.pl small{color:#fff;font-size:11px}.bg{position:absolute;top:0;right:10px;background:#111;color:#fff;border-radius:50%;font:700 10px sans-serif;padding:3px 5px;z-index:2}
+.rl{display:block;text-align:center;color:#ffffffaa;letter-spacing:2px;font-size:11px;margin-top:8px}
+
+.phone-input-group{display:flex;gap:8px;align-items:center;margin:6px 0}
+.country-select{width:120px;flex:none;margin:0;padding:12px 6px;border-radius:10px;background:#0e0e1c;border:1px solid #38346a;color:var(--tx)}
+.phone-field{flex:1;margin:0}
+
+.original-qr-container { width: 100%; text-align: center; padding: 6px 0; }
+.qr-heading { font-size: 16px; font-weight: 700; color: var(--tx); }
+.qr-image-box { width: 100%; max-width: 250px; margin: 10px auto; padding: 10px; background: #ffffff; border-radius: 16px; display: flex; align-items: center; justify-content: center; border: 3px solid var(--g); box-shadow: 0 0 20px #e6c35c44; position: relative; }
+.qr-image-box img { display: block; width: 100%; height: auto; max-height: 230px; object-fit: contain; border-radius: 6px; }
+.phonepe-center-badge { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 44px; height: 44px; background: #000; border: 3px solid #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 24px; font-weight: 900; pointer-events: none; }
+.upi-badge-row { background: #0e0e1c; border: 1px dashed var(--g); padding: 8px 12px; border-radius: 8px; margin: 8px 0; display: flex; align-items: center; justify-content: space-between; font-size: 13px; cursor: pointer; }
+.qr-instruction { color: var(--mu); font-size: 12px; margin: 4px 0 0; }
+</style></head><body><div id="app"></div><script>
+const UPI_ID = '6268882921-2@ibl';
+const UPI_NAME = 'State Bank of India';
+
+const COUNTRIES = [
+{ n: 'India', code: '+91', flag: '🇮🇳' },
+{ n: 'UAE', code: '+971', flag: '🇦🇪' },
+{ n: 'Nepal', code: '+977', flag: '🇳🇵' },
+{ n: 'Bangladesh', code: '+880', flag: '🇧🇩' },
+{ n: 'Sri Lanka', code: '+94', flag: '🇱🇰' },
+{ n: 'United Kingdom', code: '+44', flag: '🇬🇧' },
+{ n: 'USA', code: '+1', flag: '🇺🇸' },
+{ n: 'Canada', code: '+1', flag: '🇨🇦' },
+{ n: 'Australia', code: '+61', flag: '🇦🇺' },
+{ n: 'Singapore', code: '+65', flag: '🇸🇬' }
+];
+
+const $`=s=>document.querySelector(s),R=(a,b)=>a+Math.floor(Math.random()(b-a+1)),pk=a=>a[R(0,a.length-1)],shuf=a=>[...a].sort(()=>Math.random()-.5);
+const F=n=>'₹'+Number(n).toLocaleString('en-IN',{maximumFractionDigits:2});
+const cd=(ms,h)=>{ms=Math.max(0,ms/1000|0);const p=x=>String(x).padStart(2,'0');return(h?p(ms/3600|0)+':':'')+p(ms/60%60|0)+':'+p(ms%60)};
+const NM='Arjun Rao,Vikram Sen,Rohan Mehta,Karan Joshi,Dev Malik,Aman Verma,Sahil Nair,Ishaan Roy,Tom Harris,Jack Wilson,Liam Brooks,Noah Clarke,Ryan Cole,Max Turner,Ben Carter,Sam Hughes,Faizan Khan,Omar Sheikh,Bilal Ahmed,Zain Malik,Hamza Ali,Imran Raza,Adil Hussain,Saad Iqbal,Pieter Smit,Kagiso Dube,Thabo Nkosi,Dean Botha,Jaco Venter,Ruan Vos,Liam Pretor,Aiden Cross,Finn Walker,Tim Grant,Ross Dunn,Will Young,Ajaz Patel,Mitch Ray,Dylan Park,Cole Reid'.split(',');
+const UN=['Rahul_K','Priya99','CricFan07','Sandeep','Neha_S','Vijay11','Amit_X','Rohit_R','Kavya'];
+const SP={cricket:'🏏',kabaddi:'🤼',badminton:'🏸',football:'⚽',basketball:'🏀',volleyball:'🏐'};
+const C={cricket:{n:11,p:7,r:['WK','BAT','BAT','BAT','AR','AR','BOW','BOW','BOW','BAT','BOW'],max:120,dt:30000,line:200},
+kabaddi:{n:7,p:5,r:['RAID','RAID','RAID','ALL','ALL','DEF','DEF','DEF'],max:50,dt:72000,pr:.45,v:[1,2,3],line:45},
+football:{n:11,p:7,r:['GK','DEF','DEF','DEF','MID','MID','MID','FWD','FWD'],max:60,dt:60000,pr:.05,v:[1],line:2},
+basketball:{n:5,p:3,r:['PG','SG','SF','PF','C','SG'],max:60,dt:60000,pr:.8,v:[2,2,3],line:112},
+volleyball:{n:6,p:4,r:['SET','OPP','MB','MB','OH','OH','LIB'],max:60,dt:60000,pr:.5,v:[1],line:30},
+badminton:{n:3,p:2,r:['PL','PL'],max:42,dt:85000,pr:.5,v:[1],line:21}};
+const FX={cricket:[['India','🇮🇳'],['Australia','🇦🇺'],['England','🏴'],['Pakistan','🇵🇰'],['South Africa','🇿🇦'],['New Zealand','🇳🇿'],['Sri Lanka','🇱🇰'],['Bangladesh','🇧🇩']],kabaddi:[['Patna Pirates','🟡'],['Jaipur Pink','🩷'],['Bengaluru Bulls','🐂'],['Delhi Dabang','🔴']],football:[['Mumbai FC','🔵'],['Kerala FC','🟡'],['Bengaluru FC','🟦'],['Goa FC','🟠']],basketball:[['Mumbai Titans','🏀'],['Delhi Hawks','🦅'],['Chennai Kings','👑'],['Pune Wolves','🐺']],volleyball:[['Kolkata Thunder','⚡'],['Hyderabad Black','⚫'],['Calicut Heroes','🦸'],['Ahmedabad Def.','🛡️']],badminton:[['P. Sindhu','🇮🇳'],['C. Marin','🇪🇸'],['L. Sen','🇮🇳'],['K. Momota','🇯🇵']]};
+const BUD=c=>c.n9.3|0,hs=n=>[...String(n||'')].reduce((a,c)=>a+c.charCodeAt(0),0);
+
+let S,INIT=0,V={out:1,lg:'in',tab:'home',sp:'all',mid:null,mt:'c',view:null,sel:[],c:null,vc:null,bt:-1,ti:0,rf:'',modal:'',toast:'',stake:50,chat:[{r:'ai',t:'नमस्ते! मैं आपका AI असिस्टेंट हूँ। टीम, वॉलेट या कैप्टन के बारे में पूछो।'}],cc:'+91',ph:''};
+const av=(n,t,z=40)=><svg width=${z} height={t?'#f59e0b':'#2563eb'}"/><ellipse cx=20 cy=37 rx=14 ry=10 fill="latex
+{t?'#fde68a':'#bfdbfe'}"/&gt;&lt;circle cx=20 cy=16 r=7 fill="
+
+{['#f1c9a0','#d9a273','#b57c52','#8d5a3b'][hs(n)%4]}"/><path d="M13 14a7 7 0 0 1 14 0c-3-3-11-3-14 0z" fill="#1b1b1b"/></svg>`;
+const mkP=(i,sp)=>{const o=[];[0,1].forEach(s=>C[sp].r.forEach((r,k)=>o.push({id:i+'_'+(s12+k),n:NM[(i5+s11+k)%40],t:s,r,cr:8+(k7+s3)%3+(r=='AR'||r=='ALL'?.5:0)})));return o};
+const mkF=m=>UN.map(u=>({u,ids:shuf(m.pl).slice(0,C[m.sp].n).map(p=>p.id),c:pk(m.pl).id}));
+function mkM(id,sp,a,b,off,pre){const c=C[sp],m={id,sp,an:a[0],ae:a[1],bn:b[0],be:b[1],start:Date.now()+off,max:c.max,ball:0,s1:0,s2:0,w:0,pts:{},pl:mkP(id,sp),fill:R(48e5,52e5),line:Math.round(c.line(.96+Math.random()*.08)),last:off>0?Date.now()+off:Date.now()};m.fk=mkF(m);for(let k=0;k<pre;k++)tick(m);return m}
+const nm=(id,off,pre,sp)=>{sp=sp||pk(Object.keys(C));const t=shuf(FX[sp]);return mkM(id,sp,t[0],t[1],off,pre)};
+
+function init(){
+INIT=1;
+const ms=[nm(0,-1,40,'cricket'),nm(1,100000,0,'cricket'),nm(2,240000,0,'cricket'),nm(3,-1,20,'kabaddi'),nm(4,50000,0,'badminton'),nm(5,-1,30,'football'),nm(6,-1,120,'cricket'),nm(7,-1,25,'basketball'),nm(8,70000,0,'volleyball'),nm(9,-15,15,'volleyball')];
+INIT=0;
+return {bal:0,bonus:0,teams:{},joined:{},preds:[],nt:[{t:'👋 स्वागत है! वॉलेट में पैसे जोड़ें और खेलना शुरू करें',d:'—'}],un:1,nid:10,pf:{name:'Player',av:0,pin:0,tfa:0,setup:1},tx:[],matches:ms,reset:Date.now()+864e5};
+}
+
+try{S=JSON.parse(localStorage.getItem('f11_phonepe_real_sbi'))}catch(e){}
+if(!S||Date.now()>S.reset||S.bal>100000){S=init();save();}
+function save(){try{localStorage.setItem('f11_phonepe_real_sbi',JSON.stringify(S))}catch(e){}}
+
+const M=i=>S.matches.find(m=>m.id==i),st=m=>Date.now()<m.start?'up':m.ball>=m.max?'done':'live';
+const now=()=>new Date().toLocaleTimeString('hi-IN',{hour:'2-digit',minute:'2-digit'});
+const tx=(t,a)=>{S.tx.unshift({t,a,d:now()});S.tx=S.tx.slice(0,25)};
+const nt=t=>{popn(t);S.nt.unshift({t,d:now()});S.nt=S.nt.slice(0,30);S.un=(S.un||0)+1};
+const sc=(ids,c,vc,m)=>ids.reduce((s,i)=>s+(m.pts[i]||0)*(i==c?2:i==vc?1.5:1),0);
+
+function tick(m){const c=C[m.sp];if(Date.now()<m.start){m.fill=Math.min(1e7,m.fill+R(2000,9000));return}if(m.ball>=m.max)return;m.ball++;m.fill=Math.min(1e7,m.fill+R(300,3000));
+const p=m.pl,add=(x,v)=>{m.pts[x.id]=(m.pts[x.id]||0)+v;m.ev=m.ev||[];m.ev.unshift({n:x.n,v,t:m.ball});m.ev=m.ev.slice(0,40);cn(m,x,v)};
+if(m.sp=='cricket'){const r=[0,0,1,1,1,2,4,6,'W'][R(0,8)],b=pk(p.filter(x=>x.r!='BOW')),w=pk(p.filter(x=>x.r=='BOW'||x.r=='AR'));if(r=='W'){m.w++;add(w,25);add(b,-2)}else{m.s1+=r;add(b,r+(r>3?2:0))}}
+else[0,1].forEach(t=>{const q=p.filter(x=>x.t==t);if(Math.random()<c.pr){const v=pk(c.v);m['s'+(t+1)]+=v;add(pk(q),v*(m.sp=='football'?8:3))}else if(Math.random()<.3)add(pk(q),1)});
+if(m.ball>=m.max)settle(m)}
+
+function board(m){const ts=S.teams[m.id]||[],js=S.joined[m.id]||[],a=m.fk.map(f=>({u:f.u,s:sc(f.ids,f.c,null,m)}));[...new Set(js.map(j=>j.ti))].forEach(i=>{const t=ts[i];a.push({u:'आप (T'+(i+1)+')',me:1,ti:i,s:sc(t.ids,t.c,t.vc,m)})});return a.sort((x,y)=>y.s-x.s)}
+
+function settle(m){if(INIT)return;const b=board(m);(S.joined[m.id]||[]).forEach(j=>{if(j.done)return;const k=b.findIndex(x=>x.ti==j.ti)+1;j.done=1;j.rank=k;j.win=k==1?j.fee20:k<=3?j.fee3:k<=5?j.fee1.5:0;if(j.win){S.bal+=j.win;tx('जीत · '+m.an+' v '+m.bn,j.win)}});
+const p=S.preds.find(x=>x.mid==m.id&&!x.done);if(p){p.done=1;p.w=p.d=='O'?m.s1>p.line:m.s1<p.line;if(p.w){S.bal+=p.st1.9;tx('बेट जीत',p.st*1.9)}}}
+
+const scr=m=>m.sp=='cricket'?${m.s1}/${m.w}&lt;small&gt;${m.ball/6|0}.${m.ball%6} ओवर&lt;/small>:${m.s1} - ${m.s2};
+const bd=(m,s)=>s=='live'?'<span class=lv>● LIVE</span>':s=='up'?'<span class=up>⏱ '+cd(m.start-Date.now())+'</span>':'<span class=dn>समाप्त</span>';
+const fl=m=><div class=pb&gt;&lt;i style="width:${m.fill/1e5}%"></i></div><small>${m.fill&gt;=1e7?'कॉन्टेस्ट फुल!':((1e7-m.fill)/1e5).toFixed(1)+' लाख स्पॉट बचे / 1 करोड़ · '+(m.fill/1e5).toFixed(1)+' लाख भर चुके'}&lt;/small>;
+const lbv=m=>board(m).map((x,i)=><div class=row style="${x.me?'border-color:var(--g)':''}"><b>#${i+1}&lt;/b&gt;&lt;div class=g&gt;${x.u}</div><b>${x.s.toFixed(1)}&lt;/b&gt;&lt;/div>).join('');
+
+function mcard(m){const s=st(m),n=(S.joined[m.id]||[]).length;return <div class=card onclick="om(${m.id})"><div class=m><small>${SP[m.sp]} ${m.sp.toUpperCase()}</small><span data-k=bd data-m=${m.id}&gt;${bd(m,s)}</span></div><div class=m style="margin-top:8px"><b>${m.ae} ${m.an}</b><span class=sc style="font-size:18px;text-align:center" data-k=sc data-m=${m.id}&gt;${scr(m)}</span><b>${m.bn} ${m.be}</b></div><small>${n?'✓ '+n+' एंट्री · '+(S.teams[m.id]||[]).length+' टीम':'₹1 करोड़ मेगा · एंट्री ₹49'}&lt;/small&gt;&lt;/div>}
+
+function home(){const o={live:0,up:1,done:2},l=S.matches.filter(m=>V.sp=='all'||m.sp==V.sp).sort((a,b)=>o[st(a)]-o[st(b)]);
+return <div class=hd&gt;&lt;span class=logo&gt;FANTASY 11&lt;/span&gt;&lt;span class=chip onclick="go('me')" data-k=nb&gt;🔔${S.un?' '+S.un:''}</span><span class=chip onclick="go('wallet')">${F(S.bal)}&lt;/span&gt;&lt;span onclick="go('me')"&gt;${pfav(34)}</span></div><div class=chips>+[['all','सब'],...Object.entries(SP).map(([k,v])=&gt;[k,v+' '+k])].map(([k,n])=><button class="chip ${V.sp==k?'a':''}" onclick="V.sp='${k}';render()">${n}&lt;/button>).join('')+</div>+l.map(mcard).join('')}
+
+const om=i=>{V.mid=i;V.mt='c';V.ti=0;render();scrollTo(0,0)};
+
+function match(){const m=M(V.mid),s=st(m),ts=S.teams[m.id]||[],js=S.joined[m.id]||[],ti=Math.max(0,Math.min(V.ti,ts.length-1));
+let h=<div class=hd&gt;&lt;button onclick="V.mid=null;render()"&gt;←&lt;/button&gt;&lt;b&gt;${m.an} v ${m.bn}&lt;/b&gt;&lt;span data-k=bd data-m=${m.id}>${bd(m,s)}&lt;/span&gt;&lt;/div&gt;&lt;div class="card sb"&gt;&lt;div&gt;&lt;span&gt;${m.ae}</span><br>${m.an}&lt;/div&gt;&lt;div class=sc data-k=sc data-m=${m.id}>${scr(m)}&lt;/div&gt;&lt;div&gt;&lt;span&gt;${m.be}</span><br>${m.bn}&lt;/div&gt;&lt;/div&gt;&lt;div class=tabs>+[['c','कॉन्टेस्ट'],['t','मेरी टीम'],['e','लाइव'],['l','लीडरबोर्ड'],['p','बेट']].map(([k,n])=><button class="${V.mt==k?'a':''}" onclick="V.mt='${k}';render()"&gt;${n}</button>).join('')+; if(V.mt=='c')h+=[['Mega Contest',49,'₹1 करोड़'],['Head Lite',39,'₹50 लाख'],['Practice',1,'₹1 लाख']].map(([n,f,p])=><div class=card><div class=m><b>${n}&lt;/b&gt;&lt;b style="color:var(--g)"&gt;${F(f)}</b></div><small>इनाम पूल ${p} · 1st = ${F(f*20)}</small><div data-k=fl data-m=${m.id}&gt;${fl(m)}</div>${js.filter(j=&gt;j.fee==f).map(j=><small class=up>✓ T{j.done?'रैंक '+j.rank+' · जीत '+F(j.win):'टीम लॉक'}</small>).join('')}${s!='up'?'<button class=btn disabled>🔒 बेट लॉक</button>':<button class=btn onclick="jn(${f})">latex
+{ts.length?'जॉइन '+F(f):'पहले टीम बनाओ'}&lt;/button>`}&lt;/div>`).join(''); if(V.mt=='t'){h+=`<div class=chips&gt;
+
+{ts.map((_,i)=><button class="chip ${i==ti?'a':''}" onclick="V.ti=${i};render()"&gt;T${i+1}${js.some(j=&gt;j.ti==i)?' 🔒':''}&lt;/button>).join('')}{m.id} data-t={tpv(m,ti)}</div>+(s=='up'?<button class=btn onclick="ob(latex
+{ti})"&gt;टीम बदलो&lt;/button>`:'&lt;div class=card&gt;🔒 मैच शुरू, टीम लॉक&lt;/div&gt;'):`<div class=card&gt;अभी टीम नहीं बनी।&lt;/div>`+(s=='up'?'&lt;button class=btn onclick="ob(-1)"&gt;टीम बनाओ&lt;/button&gt;':'&lt;div class=card&gt;🔒 मैच शुरू, टीम लॉक&lt;/div&gt;')} if(V.mt=='e')h+=`<div data-k=ev data-m=
+
+{m.id}>{m.id}>latex
+{lbv(m)}&lt;/div>`:'&lt;div class=card&gt;जॉइन करने के बाद लीडरबोर्ड दिखेगा।&lt;/div&gt;'; if(V.mt=='p'){const p=S.preds.find(x=&gt;x.mid==m.id);h+=`<div class=card&gt;&lt;b&gt;
+
+{m.an} का फाइनल स्कोर</b><h2 style="color:var(--g);margin:6px 0">लाइन: {p.d=='O'?'Over':'Under'} · {p.done?(p.w?'· जीते ✓':'· हारे'):'· लॉक'}</small>:s!='up'?'&lt;small&gt;🔒 मैच शुरू, बेट लॉक&lt;/small&gt;':<div class=chips>latex
+{[10,50,100,500].map(x=>`<button class="chip 
+
+{V.stake==x?'a':''}" onclick="V.stake={F(x)}</button>).join('')}&lt;/div&gt;&lt;button class=btn onclick="pr('O')"&gt;Over ${m.line}.5</button><button class=btn2 onclick="pr('U')">Under ${m.line}.5&lt;/button>)+'</div>'}
+return h}
+
+function build(){const m=M(V.mid),c=C[m.sp],u=V.sel.map(i=>m.pl.find(p=>p.id==i)),cr=BUD(c)-u.reduce((s,p)=>s+p.cr,0),rs=['',...new Set(m.pl.map(p=>p.r))];
+return <div class=hd&gt;&lt;button onclick="V.view=null;render()"&gt;←&lt;/button&gt;&lt;b&gt;टीम बनाओ&lt;/b&gt;&lt;/div&gt;&lt;div class=card&gt;चुने &lt;b&gt;${V.sel.length}/${c.n}&lt;/b&gt; · क्रेडिट बचे &lt;b&gt;${cr}</b> · एक टीम से max ${c.p}&lt;small&gt;C = 2x पॉइंट, VC = 1.5x&lt;/small&gt;&lt;/div&gt;&lt;div class=chips&gt;${rs.map(r=><button class="chip${V.rf==r?'a':''}" onclick="V.rf='{r||'सब'}</button>).join('')}&lt;/div>+m.pl.filter(p=>!V.rf||p.r==V.rf).map(p=>{const on=V.sel.includes(p.id);return <div class="row ${on?'on':''}">${av(p.n,p.t)}&lt;div class=g&gt;&lt;b&gt;${p.n}</b><small>${p.t?m.bn:m.an} · ${p.r} · ${p.cr} cr&lt;/small&gt;&lt;/div&gt;${on?<button class="cv${V.c==p.id?'a':''}" onclick="sc2('c','{V.vc==p.id?'a':''}" onclick="sc2('v','latex
+{p.id}')"&gt;VC&lt;/button>`:''}&lt;button class=pm onclick="tg('
+
+{p.id}')">${on?'−':'+'}&lt;/button&gt;&lt;/div>}).join('')+<div class=bar&gt;&lt;button class=btn onclick="svT()"&gt;टीम सेव करो&lt;/button&gt;&lt;/div>}
+
+function my(){const l=S.matches.filter(m=>S.teams[m.id]||S.preds.some(p=>p.mid==m.id));return <div class=hd&gt;&lt;b&gt;मेरे मैच&lt;/b&gt;&lt;/div>+(l.length?l.map(mcard).join(''):'<div class=card>अभी कोई टीम या बेट नहीं।</div>')}
+
+function wallet(){return <div class=hd&gt;&lt;b&gt;मेरा वॉलेट&lt;/b&gt;&lt;/div&gt;&lt;div class="card gold"&gt;कुल बैलेंस&lt;h1&gt;${F(S.bal)}</h1><small>बोनस {x.t}<small>{x.a<0?'#ff6b7a':'#5ee08f'}">{F(Math.abs(x.a))}</b></div>`).join(''):'<div class=card style="color:var(--mu)">कोई लेन-देन नहीं हुआ</div>')}
+
+let depAmt=500, utrTries=0, timerId=null;
+
+const opDep=()=>mdl(&lt;h3&gt;पैसे जोड़ो&lt;/h3&gt; &lt;small style="color:var(--mu);margin-bottom:8px"&gt;न्यूनतम डिपॉजिट ₹500&lt;/small&gt; &lt;div class=chips&gt;${[500,1000,2000,5000,10000].map(x=><button class="chip${x==500?'a':''}" onclick="latex
+('#da').value=
+
+{x}">${F(x)}&lt;/button>).join('')}</div>
+<input id=da type=number min="500" max="10000" placeholder="₹500 – ₹10,000" value="500">
+<button class=btn onclick="goQR()">आगे बढ़ें (QR कोड देखें)</button>
+`);
+
+function goQR(){
+const a=+`$('#da').value;
+if(!a || a<500 || a>10000) return toast('कृपया ₹500 से ₹10,000 के बीच अमाउंट डालें');
+depAmt=a;
+utrTries=0;
+if(timerId){ clearInterval(timerId); timerId=null; }
+showQRMdl();
+}
+
+function getLivePhonePeQRUrl(amt){
+const upiUri = upi://pay?pa=${UPI_ID}&pn=${encodeURIComponent(UPI_NAME)}&am=${amt}&cu=INR; returnhttps://api.qrserver.com/v1/create-qr-code/?size=300x300&margin=1&data=${encodeURIComponent(upiUri)};
+}
+
+function copyUPI(){
+navigator.clipboard.writeText(UPI_ID).then(()=>toast('UPI ID कॉपी हो गई ✓')).catch(()=>{
+const i=document.createElement('input');i.value=UPI_ID;document.body.appendChild(i);i.select();document.execCommand('copy');i.remove();
+toast('UPI ID कॉपी हो गई ✓');
+});
+}
+
+function showQRMdl(errMsg='', isVerifying=false, secLeft=0){
+const h=&lt;div style="text-align:center"&gt; &lt;h3 style="margin:2px 0"&gt;डिपॉजिट ₹${depAmt}</h3>
+<div style="color:#f6de8b;font-weight:700;font-size:14px;margin:8px 0;background:#241d3b;padding:10px;border-radius:10px;border:1px solid #4a3e75">
+📸 स्क्रीनशॉट लो और पेमेंट करो
+</div>
+
+<div class="original-qr-container">
+<div class="qr-heading">State Bank of India - 9243</div>
+<div class="qr-image-box">
+<img id="originalPaymentQR" src="${getLivePhonePeQRUrl(depAmt)}" alt="PhonePe Payment QR Code"&gt; &lt;div class="phonepe-center-badge"&gt;पे&lt;/div&gt; &lt;/div&gt; &lt;div class="upi-badge-row" onclick="copyUPI()"&gt; &lt;span&gt;UPI ID: &lt;b&gt;${UPI_ID}</b></span>
+<span class="up" style="font-weight:700">कॉपी 📋</span>
+</div>
+<p class="qr-instruction">Scan using PhonePe, GPay, Paytm or any UPI app.</p>
+</div>
+
+<div style="text-align:left;margin-top:14px">
+<label style="font-size:12px;color:var(--mu);font-weight:700">Enter 12-Digit UTR / Transfer Reference ID:</label>
+<input id="utr_inp" type="text" maxlength="16" placeholder="e.g. 4382xxxxxxxx" ${isVerifying?'disabled':''}&gt; &lt;/div&gt; &lt;div id="utr_msg" style="min-height:22px;margin:4px 0"&gt; ${isVerifying?<b style="color:var(--g)"&gt;⏳ पेमेंट की पुष्टि हो रही है... कृपया प्रतीक्षा करें:${secLeft}s</b>:errMsg?<b style="color:#ff6b7a">latex
+{errMsg}&lt;/b>`:''} &lt;/div&gt; &lt;button id="utr_btn" class="btn" onclick="startUtrVerify()" 
+
+{isVerifying?'disabled':''}>
+latex
+{isVerifying?`VERIFYING... (
+
+{secLeft}s): utrTries&gt;=1 ? 'पुनः UTR वेरिफाई करें' : 'VERIFY UTR & CREDIT WALLET'} &lt;/button&gt; &lt;/div>;
+mdl(h);
+}
+
+function startUtrVerify(){
+const inp=$`('#utr_inp');
+const u=inp?inp.value.trim():'';
+if(!u || u.length<6){
+return toast('कृपया सही UTR नंबर दर्ज करें');
+}
+
+if(timerId){ clearInterval(timerId); timerId=null; }
+
+if(utrTries===0){
+let left=15;
+showQRMdl('', true, left);
+timerId=setInterval(()=>{
+left--;
+if(left>0){
+const m=$('#utr_msg'), b=$('#utr_btn');
+if(m) m.innerHTML=<b style="color:var(--g)"&gt;⏳ पेमेंट की पुष्टि हो रही है... कृपया प्रतीक्षा करें:${left}s</b>; if(b) b.innerText=VERIFYING... (latex
+{left}s)`; } else { clearInterval(timerId); timerId=null; utrTries=1; showQRMdl('⚠️ कोई पेमेंट नहीं मिला। डबल डालो UTR।', false, 0); } }, 1000); } else { let left=10; showQRMdl('', true, left); timerId=setInterval(()=&gt;{ left--; if(left&gt;0){ const m=
+
+('#utr_msg'), b=latex
+('#utr_btn'); if(m) m.innerHTML=`<b style="color:var(--g)"&gt;⏳ कृपया 10 सेकंड वेट करें कंफर्म करने के लिए... (
+
+{left}s)</b>; if(b) b.innerText=CONFIRMING... (${left}s);
+} else {
+clearInterval(timerId);
+timerId=null;
+utrTries=0;
+S.bal += depAmt;
+tx('डिपॉजिट (UPI/UTR)', depAmt);
+nt('💰 '+F(depAmt)+' वॉलेट में सफलतापूर्वक जमा हुए');
+save();
+V.modal='';
+render();
+toast('✅ UTR कन्फर्म! '+F(depAmt)+' वॉलेट में क्रेडिट हो गए');
+}
+}, 1000);
+}
+}
+
+const opWd=()=>mdl(<h3&gt;निकासी&lt;/h3&gt;&lt;input id=wa type=number placeholder="₹2,000 – ₹1,00,000"&gt;&lt;input id=wu placeholder="UPI ID (name@bank)"&gt;&lt;button class=btn onclick="wdo()"&gt;निकासी करो&lt;/button>);
+function wdo(){const a=+$('#wa').value,u=$('#wu').value.trim();if(!(a>=2000&&a<=100000))return toast('₹2,000 से ₹1,00,000 के बीच डालो');if(!u.includes('@'))return toast('सही UPI ID डालो');if(a>S.bal)return toast('बैलेंस कम है');S.bal-=a;tx('निकासी · '+u,-a);nt('✅ '+F(a)+' निकासी अनुरोध भेजा गया');save();V.modal='';toast('निकासी अनुरोध भेजा ✓')}
+const rn=()=>mdl(<h3&gt;नाम बदलो&lt;/h3&gt;&lt;input id=nn value="${S.pf.name||'Player'}" maxlength=16><button class=btn onclick="S.pf.name=$('#nn').value.trim()||'Player';save();V.modal='';render();toast('नाम अपडेट हुआ ✓')"&gt;सेव&lt;/button>);
+const tgp=k=>{S.pf[k]=!S.pf[k];save();render()};
+
+function setAvatar(i){
+S.pf.av=i;
+save();
+render();
+toast('अवतार बदल दिया गया ✓');
+}
+
+function me(){
+S.un=0;
+const p=S.pf||{name:'Player',av:0,pin:0,tfa:0},
+tm=Object.values(S.teams).reduce((s,a)=>s+a.length,0),
+jc=Object.values(S.joined).reduce((s,a)=>s+a.length,0),
+win=Object.values(S.joined).flat().reduce((s,j)=>s+(j.win||0),0),
+sw=(k,n)=><div class="row" style="cursor:pointer" onclick="tgp('${k}')"><div class=g>{p[k]?'ON ✓':'OFF'}</b></div>`;
+
+return <div class=hd&gt;&lt;b&gt;प्रोफाइल&lt;/b&gt;&lt;/div&gt; &lt;div class="card" style="text-align:center"&gt; &lt;div style="display:inline-block;padding:4px"&gt;${pfav(88)}</div>
+<h3 style="margin:10px 0 2px">${p.name||'Player'}&lt;/h3&gt; &lt;small style="color:var(--mu);margin-bottom:12px"&gt;ID: FX${hs(p.name||'Player')*37%90000+10000}</small>
+
+<div style="font-size:12px;color:var(--mu);margin:10px 0 6px">अवतार चुनें:</div>
+<div class="chips" style="justify-content:center;margin:6px 0">
+${AVS.map((a,i)=><button class="chip {i})">latex
+{a}&lt;/button>`).join('')} &lt;/div&gt; &lt;button class="btn2" onclick="rn()"&gt;नाम बदलो&lt;/button&gt; &lt;/div&gt; &lt;div class="card m"&gt; &lt;div&gt;टीमें&lt;h2&gt;
+
+{tm}</h2></div>
+<div>कॉन्टेस्ट<h2>{F(win)}</h2></div>
+</div>
+<div class="card">
+<b>🔔 नोटिफिकेशन</b>
+latex
+{S.nt.length?S.nt.slice(0,8).map(x=>`<div class=row&gt;&lt;div class=g&gt;
+
+{x.t}<small>latex
+{x.d}&lt;/small&gt;&lt;/div&gt;&lt;/div>`).join(''):'&lt;small&gt;कोई नया नोटिफिकेशन नहीं&lt;/small&gt;'} &lt;/div&gt; &lt;div class="card"&gt; &lt;b&gt;🔒 सिक्योरिटी&lt;/b&gt; 
+
+{sw('pin','ऐप PIN लॉक')}
+{V.chat.map(c=><div class="bb ${c.r}">${c.t}&lt;/div>).join('')}</div>
+<input id=q placeholder="कुछ पूछो…" onkeydown="if(event.key=='Enter')snd()">
+<button class=btn onclick="snd()">भेजो</button>
+</div>
+<button class="btn2" style="background:#5a1620" onclick="V.out=1;V.mid=null;V.view=null;V.tab='home';render()">लॉगआउट</button>
+<small style="text-align:center;margin-top:14px">सीज़न रीसेट <span id=rt>${cd(S.reset-Date.now(),1)}&lt;/span&gt; में&lt;/small>;
+}
+
+const nav=()=><nav>+[['home','🏠','होम'],['my','🏆','मेरे मैच'],['wallet','👛','वॉलेट'],['me','👤','प्रोफाइल']].map(([k,i,n])=><button class="${V.tab==k&&V.mid==null&&!V.view?'a':''}" onclick="go('{i}<br>${n}&lt;/button>).join('')+</nav>;
+
+function render(){if(V.out){$('#app').innerHTML=loginv();return}const y=scrollY;const h=V.view=='build'?build():V.mid!=null?match():({home,my,wallet,me})[V.tab]();$('#app').innerHTML=h+nav()+V.modal+(V.toast?<div class=toast&gt;${V.toast}</div>`:'');scrollTo(0,y)}
+
+function live(){document.querySelectorAll('[data-k]').forEach(e=>{const k=e.dataset.k,m=M(e.dataset.m);const h=k=='nb'?'🔔'+(S.un?' '+S.un:''):!m?'':k=='sc'?scr(m):k=='bd'?bd(m,st(m)):k=='fl'?fl(m):k=='lb'?lbv(m):k=='ev'?evv(m):k=='tp'?tpv(m,+e.dataset.t):'';if(e._h!==h){e.innerHTML=h;e._h=h}});const r=$`('#rt');if(r)r.textContent=cd(S.reset-Date.now(),1)}
+
+const go=t=>{V.tab=t;V.mid=null;V.view=null;V.modal='';render();scrollTo(0,0)};
+const toast=t=>{V.toast=t;render();setTimeout(()=>{V.toast='';render()},1800)};
+const ob=i=>{const t=(S.teams[V.mid]||[])[i];if(i<0&&(S.teams[V.mid]||[]).length>=6)return toast('max 6 टीमें');V.bt=i;V.sel=t?[...t.ids]:[];V.c=t?t.c:null;V.vc=t?t.vc:null;V.rf='';V.view='build';render();scrollTo(0,0)};
+function tg(id){const m=M(V.mid),c=C[m.sp],i=V.sel.indexOf(id);if(i>=0){V.sel.splice(i,1);if(V.c==id)V.c=null;if(V.vc==id)V.vc=null}else{const p=m.pl.find(x=>x.id==id),u=V.sel.map(x=>m.pl.find(q=>q.id==x));if(u.length>=c.n)return toast(c.n+' खिलाड़ी पूरे');if(u.filter(q=>q.t==p.t).length>=c.p)return toast('एक टीम से max '+c.p);if(u.reduce((s,q)=>s+q.cr,0)+p.cr>BUD(c))return toast('क्रेडिट कम पड़ गए');V.sel.push(id)}render()}
+function sc2(k,id){if(k=='c'){V.c=id;if(V.vc==id)V.vc=null}else{V.vc=id;if(V.c==id)V.c=null}render()}
+function svT(){const m=M(V.mid),n=C[m.sp].n;if(st(m)!='up'){V.view=null;return toast('मैच शुरू, टीम लॉक')}if(V.sel.length<n)return toast(n+' खिलाड़ी चुनो');if(!V.c||!V.vc)return toast('कैप्टन और वाइस-कैप्टन चुनो');const ts=S.teams[m.id]=S.teams[m.id]||[],i=V.bt<0?ts.length:V.bt;ts[i]={ids:[...V.sel],c:V.c,vc:V.vc};V.ti=i;nt('✅ टीम T'+(i+1)+' सेव · '+m.an+' v '+m.bn+' (शुरू होने में '+cd(m.start-Date.now())+')');save();V.view=null;V.mt='t';toast('टीम T'+(i+1)+' सेव हो गई ✓')}
+function jn(f){const m=M(V.mid),ts=S.teams[m.id]||[];if(st(m)!='up')return toast('मैच शुरू, बेट लॉक');if(!ts.length)return ob(-1);if(ts.length==1)return dj(f,0);mdl('<h3>कौन सी टीम से जॉइन?</h3>'+ts.map((_,i)=><button class=btn onclick="V.modal='';dj(${f},{i+1}</button>).join(''))} function dj(f,ti){const m=M(V.mid),js=S.joined[m.id]=S.joined[m.id]||[];if(st(m)!='up')return toast('मैच शुरू, बेट लॉक');if(js.some(j=&gt;j.fee==f&&j.ti==ti))return toast('T'+(ti+1)+' पहले ही जॉइन है');if(S.bal+S.bonus&lt;f)return toast('बैलेंस कम है');const u=Math.min(S.bonus,f);S.bonus-=u;S.bal-=f-u;js.push({fee:f,ti});tx('कॉन्टेस्ट एंट्री T'+(ti+1),-f);nt('🏆 '+F(f)+' कॉन्टेस्ट जॉइन · T'+(ti+1)+' लॉक');save();toast('जॉइन ✓ पैसा कटा, टीम लॉक')} function pr(d){const m=M(V.mid),a=V.stake;if(st(m)!='up')return toast('बेट लॉक');if(S.bal&lt;a)return toast('बैलेंस कम है');S.bal-=a;S.preds.push({mid:m.id,d,line:m.line,st:a});tx('स्कोर बेट',-a);nt('🎯 बेट लॉक · '+(d=='O'?'Over ':'Under ')+m.line+'.5');save();toast('बेट लॉक ✓')} const mdl=h=&gt;{V.modal=<div class=md onclick="if(event.target==this){if(timerId){clearInterval(timerId);timerId=null;}V.modal='';render()}"><div class=sh>latex
+{h}&lt;/div&gt;&lt;/div>`;render()}; function snd(){const q=
+
+('#q').value.trim();if(!q)return;V.chat.push({r:'me',t:q.replace(/</g,'<')});const l=q.toLowerCase();V.chat.push({r:'ai',t:/टीम|team|कैप्टन|captain|\bvc\b/.test(l)?'फॉर्म वाले बैट्समैन या ऑलराउंडर को कैप्टन बनाओ (2x)। एक टीम से सीमित खिलाड़ी और क्रेडिट लिमिट का ध्यान रखो।':/वॉलेट|पैसे|बैलेंस|निकासी|wallet/.test(l)?'वॉलेट में ₹500 से ₹10,000 तक जोड़ सकते हो, निकासी ₹2,000 से ₹1,00,000।':/रीसेट|reset/.test(l)?'हर 24 घंटे में सब अपने-आप रीसेट होता है।':'मैं टीम बनाने, कैप्टन चुनने और वॉलेट में मदद कर सकता हूँ।'});render()}
+
+setInterval(()=>{const n=Date.now();if(n>S.reset){S=init();render();return}let full=0;
+S.matches.forEach(m=>{const c=C[m.sp];if(n<m.start)tick(m);else while(m.last+c.dt<=n&&m.ball<m.max){m.last+=c.dt;tick(m)}const s=st(m);if(m.ls&&m.ls!=s){full=1;if((S.joined[m.id]||[]).length)nt(s=='live'?'🔴 '+m.an+' v '+m.bn+' शुरू! आपकी टीम लॉक':'🏁 '+m.an+' v '+m.bn+' समाप्त — रिजल्ट देखो')}m.ls=s;rkn(m)});
+if(S.matches.filter(m=>st(m)!='done').length<6)S.matches.push(nm(S.nid++,R(600,1500)*1000,0));
+if(S.matches.length>16){const i=S.matches.findIndex(m=>st(m)=='done'&&!S.teams[m.id]&&!S.joined[m.id]&&m.id!=V.mid);if(i>=0){S.matches.splice(i,1);full=1}}
+save();if(V.out||V.modal||V.view=='build')return;full?render():live()},1000);
+
+const AVS=['🧑','😎','🦁','🐯','🦅','👑','⚡','🔥'];
+const ACL=['#2563eb','#7c3aed','#d97706','#dc2626','#0d9488','#be185d','#0891b2','#ea580c'];
+const pfav=z=>{
+const avIdx = (S && S.pf && typeof S.pf.av==='number') ? S.pf.av % AVS.length : 0;
+return <div style="width:${z}px;height:${z}px;border-radius:50%;background:${ACL[avIdx]};display:inline-flex;align-items:center;justify-content:center;font-size:${z*.55}px;border:2px solid var(--g);box-shadow:0 0 10px rgba(0,0,0,0.5);user-select:none"&gt;${AVS[avIdx]}</div>`;
+};
+
+const LBL={WK:'WICKET-KEEPERS',BAT:'BATTERS',AR:'ALL-ROUNDERS',BOW:'BOWLERS'};
+const pc=(p,t,m)=>{const v=(m.pts[p.id]||0)*(t.c==p.id?2:t.vc==p.id?1.5:1);return <div class=pl&gt;${t.c==p.id?'<i class=bg>C</i>':t.vc==p.id?'<i class=bg>VC</i>':''}{p.n.split(' ').map((w,k)=>k?w:w[0]+'.').join(' ')}</span><small style="display:block;latex
+{v&lt;0?'color:#ffb4b4':''}"&gt;
+
+{v} Pts</small></div>}; const tpv=(m,i)=&gt;{const t=(S.teams[m.id]||[])[i];if(!t)return'';const rs=[...new Set(C[m.sp].r)];return<div class=card style="padding:0;overflow:hidden"><div class=m style="padding:10px 14px;background:#0b3d1e"><b>T{(S.joined[m.id]||[]).some(j=>j.ti==i)?' 🔒':''}</b><b class=up>latex
+{sc(t.ids,t.c,t.vc,m).toFixed(1)} Pts&lt;/b&gt;&lt;/div&gt;&lt;div class=pitch>`+rs.map(r=&gt;{const ps=t.ids.map(id=&gt;m.pl.find(x=&gt;x.id==id)).filter(p=&gt;p.r==r);return ps.length?`<small class=rl&gt;
+
+{LBL[r]||r}</small><div class=pr2>latex
+{ps.map(p=&gt;pc(p,t,m)).join('')}&lt;/div>`:''}).join('')+`</div&gt;&lt;/div>`}; const evv=m=&gt;{const b=board(m),me=b.map((x,i)=&gt;x.me?`<div class=row&gt;&lt;b&gt;#
+
+{i+1}</b><div class=g>{x.s.toFixed(1)}</b></div>:'').join('');return<div class=card><b>🏅 आपकी टीमें</b>{b[0].u} · {(m.ev||[]).slice(0,15).map(e=><div class=row&gt;&lt;div class=g&gt;${e.n}${e.v==25?' 🎯 विकेट':''}&lt;small&gt;${m.sp=='cricket'?(e.t/6|0)+'.'+e.t%6+' ओवर':'मिनट '+e.t}</small></div><b style="color:${e.v&lt;0?'#ff6b7a':'#5ee08f'}"&gt;${e.v>0?'+':''}${e.v}&lt;/b&gt;&lt;/div>).join('')||'<small>मैच शुरू होने का इंतज़ार…</small>'}</div>`};
+const popn=t=>{if(V.out)return;document.querySelectorAll('.pp').forEach(x=>x.remove());const d=document.createElement('div');d.className='toast pp';d.style.top='112px';d.style.maxWidth='90%';d.textContent=t;document.body.appendChild(d);setTimeout(()=>d.remove(),3500)};
+function cn(m,x,v){if(!S||Math.abs(v)<6)return;const js=S.joined[m.id]||[];if(!js.length)return;const t=(S.teams[m.id]||[])[js[0].ti];if(t&&t.ids.includes(x.id))nt((v>0?'🔥 ':'⚠️ ')+x.n+(t.c==x.id?' (C)':t.vc==x.id?' (VC)':'')+' → '+(v>0?'+':'')+v+' पॉइंट')}
+function rkn(m){const s=st(m);if(s=='up'&&m.start-Date.now()<3e5&&!m.rm){m.rm=1;nt('⏰ '+m.an+' v '+m.bn+' 5 मिनट में शुरू'+(S.teams[m.id]?' · आपकी टीम तैयार है':' · अभी टीम नहीं बनी'))}if(s!='live'||!(S.joined[m.id]||[]).length)return;const r=board(m).findIndex(x=>x.me)+1;if(m.rk==null)m.rk=r;else if(r!=m.rk&&Date.now()-(m.rt||0)>20000){nt((r<m.rk?'📈 ':'📉 ')+m.an+' v '+m.bn+': आपकी टीम #'+m.rk+' से #'+r+' पर');m.rk=r;m.rt=Date.now()}}
+
+function directLogin(){
+const numInp = $`('#ph');
+const num = numInp ? numInp.value.replace(/\D/g,'') : '';
+if(num.length > 0){
+S.pf.phone = (V.cc||'+91') + ' ' + num;
+}
+save();
+V.out = 0;
+V.tab = 'home';
+render();
+toast('सफलतापूर्वक लॉगिन हो गया ✓');
+}
+
+const loginv=()=>{
+return `<div style="text-align:center;padding:50px 10px 30px">
+<div class=logo style="font-size:36px;letter-spacing:1.5px">FANTASY 11</div>
+<small style="margin:10px 0 24px;color:var(--mu);font-size:13px">क्रिकेट · कबड्डी · फुटबॉल और बहुत कुछ</small>
+
+<div class="card" style="text-align:left;margin-top:18px;padding:18px">
+<label style="font-size:12px;color:var(--mu);font-weight:700">देश चुनें और मोबाइल नंबर डालें (10 अंक):</label>
+<div class="phone-input-group">
+<select class="country-select" onchange="V.cc=this.value">
+${COUNTRIES.map(c=><option value="{c.code==(V.cc||'+91')?'selected':''}>{c.code}</option>`).join('')}
+</select>
+<input id="ph" class="phone-field" type="tel" maxlength="10" placeholder="10 अंकों का नंबर" oninput="this.value=this.value.replace(/\D/g,'').slice(0,10)">
+</div>
+
+<label style="font-size:12px;color:var(--mu);font-weight:700;margin-top:8px;display:block">पासवर्ड:</label>
+<input id="pw" type="password" placeholder="पासवर्ड दर्ज करें">
+
+<button class="btn" style="margin-top:16px" onclick="directLogin()">लॉगिन करें</button>
+<button class="btn2" style="background:#1f1d3a;margin-top:8px" onclick="directLogin()">⚡ डायरेक्ट प्रवेश</button>
+</div>
+</div>`;
+};
+
+render();
+</script></body></html>
